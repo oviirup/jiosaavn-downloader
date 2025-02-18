@@ -1,0 +1,30 @@
+{
+  "explorer.sortOrder": "type",
+  // action on save
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never",
+    "source.fixAll.eslint": "explicit"
+  },
+  // disable validation for css and scss for tailwind
+  "css.validate": false,
+  "scss.validate": false,
+  // file nesting
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "package.json": "bun.lock*, .nvm*, .npm*",
+    "*.js": "$(capture).*.js",
+    "*.ts": "$(capture).*.ts, $(capture).*.js",
+    "*.tsx": "$(capture).*.ts, $(capture).*.js, $(capture).module.scss"
+  },
+  // tailwind support for cva and classNames
+  "tailwindCSS.classAttributes": ["className", "\\w+ClassName"],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  // prettier-ignore
+  "cSpell.words": [
+    "jiosaavn","tailwindcss","webp","zod","plasmohq","pluggables",
+  ]
+}

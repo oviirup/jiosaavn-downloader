@@ -1,141 +1,121 @@
-# JioSaavn Downloader ![][sh_chrome]
+# JioSaavn Downloader
 
-[![][sh_gh_stars]](#) [![][sh_version]](#) [![][sh_downloads]][release]
+[![](https://img.shields.io/github/stars/oviirup/jiosaavn-downloader)](#)
+[![](https://img.shields.io/github/v/release/oviirup/jiosaavn-downloader?include_prereleases&label=version)](#)
+[![](https://img.shields.io/github/downloads/oviirup/jiosaavn-downloader/total?label=Downloads)][release]
 
-> This extension is still in the works. It is not yet ready for production use. It is still in the early stages of development. Many features are missing and bugs are still being worked on.
->
-> The Download is working right but currently the files have _no metatags_.
+> This extension is still under development and is not yet ready for production use. Many features are still in the works, and there are still some bugs.
 
-Simple and effective extension to download Songs, Albums, or Playlists from [jioSaavn.com](https://jioSaavn.com) with just one click. It also hides ads and promotions from JioSaavn Web and slightly tweaks the UI. Last but not least, it implements a long-awaited **dark mode****.
+A simple and effective extension to download songs, albums, or playlists from [JioSaavn.com](https://jioSaavn.com) with just one click. It also hides ads and promotions from the JioSaavn website and slightly tweaks the UI. Last but not least, it implements a long-awaited **dark mode**.
 
-Give it a star if you love the extension.\
-[Follow me][profile] if you want to get updates on repos like this.
+If you like the extension, give it a star.\  
+[Follow me][profile] to stay updated on similar projects.
 
 You can download the extension from the following [link][download].\
-<small>You can also go through how to install it if you are struggling.</small>
+<small>If you’re having trouble installing it, you can refer to the installation guide below.</small>
 
 <details>
  <summary><b>Table of Contents</b></summary>
- <ul>
-  <li><a href='#how-it-works'>How It Works</a></li>
-  <li><a href='#features'>Features</a></li>
-  <li><a href='#how-to-use'>How to Use</a></li>
-    <ul>
-      <li><a href='#prerequisites'>Prerequisites</a></li>
-      <li><a href='#download-and-install'>Downnloaad and install</a></li>
-      <li><a href='#customizing-the-extension'>Customize Extension</a></li>
-    </ul>
-  <li><a href='#credits'>Credits</a></li>
- </ul>
+
+- [How It Works](#how-it-works)
+- [Features](#features)
+  - [Upcoming Features](#upcoming-features)
+- [How to Use](#how-to-use)
+  - [Prerequisites](#prerequisites)
+  - [Download and Install](#download-and-install)
+  - [Customizing the Extension](#customizing-the-extension)
+- [Credits](#credits)
+
 </details>
 
-This extension is still in development, and some of its features are still in the making.
-
-![JioSaavn Dark Mode][img_1]
+![JioSaavn Dark Mode](./assets/preview.png)
 
 ## How It Works
 
-It fetches data from the API endpoints of JioSaavn and organizes them in a useful manner. All this happens within the browser and does not rely on external servers.
+The extension fetches data from JioSaavn's API endpoints and organizes it in a user-friendly manner. This process occurs entirely within the browser and does not rely on external servers.
 
-After Fetching data it gets the URL of the song, album, or playlist in your desired quality settings. Then it creates an HTTP request to the server to fetch the M4A file. This step requires the CORS to be enabled in your browser. In previous builds, it requires you to use another extension, but in newer builds, it is baked in.
+Once the data is fetched, it retrieves the URL for the song, album, or playlist in your preferred quality settings. The extension then sends an HTTP request to the server to fetch the M4A file. This step requires CORS to be enabled in your browser. In previous versions, this required an additional extension, but it is now integrated.
 
-In the case of a Playlist or an Album, it fetches the songs in the playlist and then downloads them one by one and puts them inside a zip file to download at once.
+For playlists or albums, the extension fetches the individual songs and downloads them one by one, placing them inside a ZIP file for easy download.
 
 ## Features
 
-- [x] Added Dark Mode toggle.
-- [x] Select Any Quality Downloads\
-      Supports HD **320kbps**, Default: **160kbps**.
-- [x] Download a **Songs**.
-- [x] Download **Album**, and **Playlist** as ZIP files.
-- [x] **Blocks ADs** and Promotions.
-- [x] Modifies some of the UI Elements.
-- [x] **Cancel Download** button for songs.
-- [x] **Update Notification** for new releases of the extension.
+- [x] Dark Mode toggle.
+- [x] Download in various qualities: HD **320kbps**, Default **160kbps**.
+- [x] Download **Songs**.
+- [x] Download **Albums** and **Playlists** as ZIP files.
+- [x] **Blocks Ads** and Promotions.
+- [x] Modifies certain UI elements.
+- [x] **Cancel Download** button for individual song downloads.
+- [x] **Update Notifications** for new releases of the extension.
 
-### Upcomming Features
+### Upcoming Features
 
-- [ ] Download Progressbar
-- [ ] Download Top songs from Artists.
-- [ ] Cancel Download button for Lists or Album downloads.
-- [ ] Download Podcast.
-- [ ] Add metadata to the songs.
+- [ ] Download Progress Bar
+- [ ] Download Top Songs from Artists
+- [ ] Cancel Download button for album/playlist downloads
+- [ ] Download Podcasts
+- [ ] Add metadata to downloaded songs
 
 ## How to Use
 
-This extension cannot hosted be in Chrome Webstore due to obvious reasons. You can manually install the extension just by following the steps...
+Due to limitations, this extension cannot be hosted on the Chrome Web Store. You can manually install the extension by following the steps below.
 
-You can go to _jiosaavn.com_ just by **single-click** on the extension icon, no need to add extra bookmarks, and **double-click** to open the _extension options_.
+You can access _JioSaavn_ directly by **single-clicking** the extension icon, with no need to add extra bookmarks. **Double-click** the extension icon to open the extension options.
 
 ### Prerequisites
 
-- [x] Developer Mode: Enable developer mode in your browser.\
-       Go to [about://extensions/][about_ext] and check **Developer Mode** checkbox.
+- [x] Developer Mode: Enable developer mode in your browser.\  
+       Go to [about://extensions/](about://extensions/) and check the **Developer Mode** checkbox.
 
 ### Download and Install
 
-1. Download the extension here : [download][download], and extract it.\
-   You can also go to the [release page][release] to check out other versions.
-2. Go to chrome extensions page : [about://extensions/][about_ext]
-3. You will see a button called **Load Unpacked Extension...** click that
-4. Select the extracted folder and click **Open**
+1. Download the extension here: [download][download] and extract the contents.\  
+   You can also visit the [release page][release] to check for other versions.
+2. Go to the Chrome Extensions page: [about://extensions/](about://extensions/).
+3. Click the **Load Unpacked Extension...** button.
+4. Select the extracted folder and click **Open**.
 
-**Note:** If you downloaded the SourceCode, you can also install it by running the following command in your terminal (You will need Node.JS and npm installed on your machine) :
+**Note:** If you downloaded the source code, you can install it by running the following commands in your terminal (ensure that Node.js and npm are installed):
 
-``` shell
+```shell
 npm install
 npm run build
 ```
 
-This will build the extension in `build` folder. Then you can manually install the extension.
+This will build the extension in the build folder. You can then manually install the extension.
 
 ### Customizing the Extension
 
-The extension comes with an options page from which you can customize the extension. You can find it in the extensions menu, just **Right Click** on the extension icon and click on **Extension Options**. You will have several options like...
+The extension comes with an options page for customization. To access it, right-click the extension icon and select Extension Options. You can also open the options page by double-clicking the extension icon in the toolbar.
 
-Alternatively, you can open the options page by **double-clicking** on the extension icon in the toolbar.
-
-- **Dark Mode:** to toggle the dark mode.\
+- **Dark Mode**: Toggle dark mode.\
   > Default: Enabled
-- **Quality Settings:** to select the quality of the songs you want to download.\
+- **Quality Settings**: Choose the quality of songs to download.\
   > Default: 160kbps
-- **Name Format**: to change the name of the songs in a specified format.\
+- **Name Format**: Customize the naming format of the downloaded songs.\
   > Default: $title - $album_artist,\
   > Params: $title, $album_artist, $artists, $album, $year, $track, $genre, $bitrate
-- **Update Notification**: to enable or disable the update notification.\
+- **Update Notifications**: Enable or disable notifications for new releases.\
   > Default: Enabled
 
 ## Credits
 
-I must acknowledge where credit is due. This project would not be possible without the help of the following people and their open-source projects.
+I would like to acknowledge the following individuals and their open-source projects, which were instrumental in the development of this extension:
 
 - [naqushab / saavn-downloader-extension](https://github.com/naqushab/saavn-downloader-extension)\
-  Gave the inspiration to build the extension.
+  Inspired the creation of this extension.
 - [Tehhs / chrome-localhost-cors-unblocker](https://github.com/Tehhs/chrome-localhost-cors-unblocker)\
-  Helped to make the extension completely standalone, and remove the requirement of any proxy server.
+   Enabled the extension to function independently without the need for a proxy server.
 - [monuyadav016 / Saavn-Downloader](https://github.com/monuyadav016/Saavn-Downloader)\
-  Gave the concept of the JioSaavn API.
+  Provided the concept for interacting with the JioSaavn API.
 
-Their Projects help me a lot in developing this extension.
+These projects were invaluable in the development process.
 
 [&#x21e1; Back to top](#)
 
----
+<!-- links -->
 
-Made with 💖 in India.
-
-[about_ext]: about://extensions/
-[release]: https://github.com/GrayGalaxy/jiosaavn-extension/releases ' '
-[download]: https://github.com/GrayGalaxy/jiosaavn-extension/releases/download/v22.2.26/release.zip 'Download'
-[profile]: https://github.com/GrayGalaxy
-
-<!--Images -->
-
-[img_1]: https://user-images.githubusercontent.com/49820575/152336823-7ae2fa07-56a2-438e-9ff3-46a1d69566c6.jpg
-
-<!-- Shields -->
-
-[sh_gh_stars]: https://img.shields.io/github/stars/GrayGalaxy/jiosaavn-extension?logo=github&label=Stars
-[sh_chrome]: https://img.shields.io/badge/-Chrome-black?logo=google-chrome&logoColor=white
-[sh_version]: https://img.shields.io/github/v/release/GrayGalaxy/jiosaavn-extension?include_prereleases&label=Version
-[sh_downloads]: https://img.shields.io/github/downloads/GrayGalaxy/jiosaavn-extension/total?label=Downloads
+[release]: https://github.com/oviirup/jiosaavn-downloader/releases ' '
+[download]: https://github.com/oviirup/jiosaavn-downloader/releases/download/v22.2.26/release.zip 'Download'
+[profile]: https://github.com/oviirup

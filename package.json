@@ -1,32 +1,56 @@
 {
-	"name": "jiosaavn-extension",
-	"version": "1.2.6",
-	"description": "An all in one extension for JioSaavn, to enable dark mode, download songs, adblocker, and more.",
-	"license": "GPL-3.0-or-later",
-	"type": "module",
-	"scripts": {
-		"watch": "webpack --mode=development --watch",
-		"build": "webpack --mode=production"
-	},
-	"devDependencies": {
-		"@types/file-saver": "^2.0.5",
-		"@types/jquery": "3.5.14",
-		"@types/webextension-polyfill": "0.9.0",
-		"copy-webpack-plugin": "11.0.0",
-		"esbuild-loader": "2.19.0",
-		"node-sass": "7.0.1",
-		"typescript": "4.7.3",
-		"webpack": "5.73.0",
-		"webpack-cli": "4.10.0"
-	},
-	"dependencies": {
-		"@types/chrome": "0.0.190",
-		"axios": "0.27.2",
-		"file-saver": "2.0.5",
-		"jquery": "3.6.0",
-		"jsx-dom": "8.0.1-beta.8",
-		"jszip": "3.10.0",
-		"selector-observer": "2.1.6",
-		"webextension-polyfill": "0.9.0"
-	}
+  "name": "jiosaavn-downloader",
+  "version": "2.0.0",
+  "displayName": "JioSaavn downloader",
+  "description": "A simple and effective extension to download songs, albums, or playlists from JioSaavn with just one click",
+  "homepage": "https://github.com/oviirup/jiosaavn-downloader",
+  "author": {
+    "name": "Avirup Ghosh",
+    "url": "https://github.com/oviirup"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "plasmo build",
+    "clean": "npx rimraf .plasmo build",
+    "dev": "plasmo dev",
+    "format": "prettier . -w -u --cache",
+    "pack": "plasmo build --zip"
+  },
+  "dependencies": {
+    "@plasmohq/messaging": "~0.7.1",
+    "@plasmohq/storage": "~1.15.0",
+    "class-variance-authority": "~0.7.1",
+    "plasmo": "~0.90.3",
+    "react": "~19.0.0",
+    "react-dom": "~19.0.0",
+    "tailwind-merge": "~3.0.1"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "~0.5.1",
+    "@changesets/cli": "~2.28.0",
+    "@oviirup/sprite": "~0.1.6",
+    "@types/bun": "~1.2.2",
+    "@types/chrome": "~0.0.304",
+    "@types/react": "~19.0.10",
+    "@types/react-dom": "~19.0.4",
+    "autoprefixer": "~10.4.20",
+    "postcss": "~8.5.2",
+    "prettier": "~3.5.1",
+    "prettier-plugin-imports": "~4.2.12",
+    "prettier-plugin-jsdoc": "~1.3.2",
+    "prettier-plugin-pkg": "~0.18.1",
+    "prettier-plugin-tailwindcss": "~0.6.11",
+    "sass": "~1.85.0",
+    "tailwindcss": "~3.4.17",
+    "tailwindcss-pluggables": "~1.0.4",
+    "typescript": "~5.7.3"
+  },
+  "manifest": {
+    "host_permissions": [
+      "https://*/*"
+    ]
+  }
 }

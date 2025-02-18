@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "spacegray.editorconfig-dev",
+    "redhat.vscode-yaml",
+    "timgthomas.explorer-gitignore",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "streetsidesoftware.code-spell-checker",
+    "mikestead.dotenv",
+    "vitest.explorer"
+  ]
+}
