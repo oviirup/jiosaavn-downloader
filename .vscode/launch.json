@@ -12,14 +12,14 @@
         "name": "chrome:launch",
         "action": "startDebugging",
         "killOnServerStop": true,
-        "pattern": "🟢 DONE"
+        "pattern": "| Extension re-packaged in"
       }
     },
     {
       "name": "chrome:launch",
       "type": "chrome",
       "request": "launch",
-      "url": "chrome://extensions/",
+      "url": "https://www.jiosaavn.com/",
       "webRoot": "${workspaceFolder}",
       "runtimeArgs": ["--load-extension=${workspaceFolder}/build/chrome-mv3-dev"],
       "cwd": "${workspaceFolder}"

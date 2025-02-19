@@ -15,7 +15,7 @@
     "package.json": "bun.lock*, .nvm*, .npm*",
     "*.js": "$(capture).*.js",
     "*.ts": "$(capture).*.ts, $(capture).*.js",
-    "*.tsx": "$(capture).*.ts, $(capture).*.js, $(capture).module.scss"
+    "*.tsx": "$(capture).*.ts, $(capture).*.js"
   },
   // tailwind support for cva and classNames
   "tailwindCSS.classAttributes": ["className", "\\w+ClassName"],
@@ -25,6 +25,6 @@
   ],
   // prettier-ignore
   "cSpell.words": [
-    "jiosaavn","tailwindcss","webp","zod","plasmohq","pluggables",
+    "jiosaavn","jsdx","tailwindcss","webp","zod","plasmohq","pluggables",
   ]
 }
