@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "bun:dev",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "bun run dev",
+      "skipFiles": ["<node_internals>/**"],
+      "cwd": "${workspaceFolder}",
+      "serverReadyAction": {
+        "name": "chrome:launch",
+        "action": "startDebugging",
+        "killOnServerStop": true,
+        "pattern": "| Extension re-packaged in"
+      }
+    },
+    {
+      "name": "chrome:launch",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://www.jiosaavn.com/",
+      "webRoot": "${workspaceFolder}",
+      "runtimeArgs": ["--load-extension=${workspaceFolder}/build/chrome-mv3-dev"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

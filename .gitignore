@@ -1,12 +1,16 @@
-/node_modules
-/build
-/.vscode
-*.idea
-*.idea.*
+# repository
+node_modules
+build
+dist
+.plasmo
+.icons
 
-# lock files
-yarn.lock
-package-lock.json
-pnpm-lock.yaml
+
+
+# local env files
+.env*
+!.env.example
+
+# log files
 *-debug.log*
 *-error.log*

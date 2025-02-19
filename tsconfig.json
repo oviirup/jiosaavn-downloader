@@ -1,17 +1,14 @@
 {
-	"compilerOptions": {
-		"target": "es6",
-		"module": "esnext",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"esModuleInterop": true,
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"jsx": "preserve",
-		"noEmit": true,
-	},
-	"include": ["**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules", "build"]
+  "extends": "plasmo/templates/tsconfig.base",
+  "compilerOptions": {
+    "checkJs": true,
+    "baseUrl": ".",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/assets/*": ["./assets/*"]
+    }
+  },
+  "include": [".plasmo/index.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "build"]
 }
