@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #2cd8c4;
+  --color-border: #e8e8e8;
+  --color-background: #f6f6f6;
+  --color-foreground: #3e3e3e;
+  --color-card: #eee;
+  --color-card-fg: #555;
+  --color-muted: #bbb;
+  --color-muted-fg: #888;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #2cd8c4;
+    --color-border: #292b2c;
+    --color-background: #18191a;
+    --color-foreground: #eee;
+    --color-card: #242526;
+    --color-card-fg: #888;
+    --color-muted: #2e3031;
+    --color-muted-fg: #555;
+  }
+}
