@@ -1,0 +1,38 @@
+@tailwind utilities;
+@tailwind components;
+
+.disabled {
+  cursor: not-allowed !important;
+}
+[data-menu-action='D'] {
+  display: none !important;
+}
+
+.__JSDX_download_button[data-pending] i:before {
+  content: 'J' !important;
+}
+.c-content .o-list-bare li .o-snippet .o-snippet__item {
+  width: 44px;
+}
+.c-content .o-list-bare li .o-snippet .o-snippet__item:last-of-type {
+  width: 66px;
+}
+@media (max-width: 61.25em) {
+  .c-content .o-list-bare li .o-snippet .o-snippet__item:last-of-type {
+    width: 44px;
+  }
+  li .o-snippet.active .o-snippet__item:first-child {
+    width: 30px !important;
+    display: block !important;
+  }
+  figure.o-flag.o-flag--cover figcaption.o-flag__body {
+    margin-bottom: 3em !important;
+  }
+  .o-snippet__item:first-child {
+    display: none;
+  }
+  .c-player__entity {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
