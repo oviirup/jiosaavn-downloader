@@ -1,4 +1,4 @@
-name: Bug Report
+name: 🐛 Bug Report
 description: File a bug report
 title: '🐛 '
 labels: [bug]
@@ -8,17 +8,27 @@ body:
   - type: markdown
     attributes:
       value: Thanks for taking the time to fill out this bug report!
-  - type: checkboxes
+  - type: input
     attributes:
-      label: Preflight Checklist
-      description: Please ensure you've completed all of the following.
+      label: JioSaavn downloader version
+      placeholder: eg. 3.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: area-of-interest
+    attributes:
+      label: Area of interest
+      description: Please select the area of interest to pinpoint the source of issue
+      multiple: false
       options:
-        - label: Checkout the [Known Issues](https://github.com/oviirup/jiosaavn-downloader/releases) posted on release notes.
-          required: true
-        - label: I agree to follow the [Code of Conduct](https://github.com/oviirup/jiosaavn-downloader/blob/main/.github/code_of_conduct.md that this project adheres to.
-          required: true
-        - label: I have searched the [issue tracker](https://www.github.com/oviirup/jiosaavn-downloader/issues) for a bug report that matches the one I want to file, without success.
-          required: true
+        - Downloads
+        - Song Metadata
+        - Theme
+        - Ad blocker
+        - Browser compatibility
+        - Miscellaneous
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: What happened?
@@ -31,8 +41,8 @@ body:
       required: true
   - type: input
     attributes:
-      label: Relevent URL
-      description: Provide the url where the error occoured
+      label: Relevant URL
+      description: Provide the url where the error occurred
       placeholder: https://jiosaavn.com/featured
     validations:
       required: true
@@ -52,3 +62,12 @@ body:
         ...
     validations:
       required: false
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      description: Please ensure you've completed all of the following.
+      options:
+        - label: I agree to follow the [Code of Conduct](https://github.com/oviirup/jiosaavn-downloader/blob/main/.github/code_of_conduct.md that this project adheres to.
+          required: false
+        - label: I have searched the [issue tracker](https://www.github.com/oviirup/jiosaavn-downloader/issues) for a bug report that matches the one I want to file, without success.
+          required: false
