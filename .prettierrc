@@ -9,7 +9,6 @@
     "prettier-plugin-jsdoc",
     "prettier-plugin-tailwindcss"
   ],
-  "quoteProps": "consistent",
   "singleQuote": true,
   "semi": true,
   "tailwindFunctions": ["clsx", "cn", "cva"],

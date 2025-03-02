@@ -53,24 +53,16 @@ const typeFlagMap = {
   featured: 'playlist',
   s: 'playlist',
   album: 'album',
-} as const;
-observe('#root > *:where(.featured,.s,.album)', {
-  add: (container) => {
-    // get page type
-    let type: Button.Props['target'];
-    for (const [flag, pageType] of Object.entries(typeFlagMap)) {
-      if (!container.classList.contains(flag)) continue;
-      type = pageType;
-      break;
-    }
-    // get target element
-    const el = container.querySelector('figure .o-layout > .o-layout__item:first-of-type');
+};
+observe('#root > div:where(.featured,.s,.album) figure .o-layout > .o-layout__item:first-of-type', {
+  add: (el) => {
     // get to parent node and look for the song id token
     const parent = el.parentElement;
     const pathname = new URL(window.location.href).pathname;
-    const token = pathname.match(/.*\/(.*)$/)?.[1];
+    const [, pageSlugParam, token] = pathname.match(/^\/([^/]+)\/.*\/([^/]+)$/);
+    const type = pageSlugParam in typeFlagMap ? typeFlagMap[pageSlugParam] : null;
     // if button already injected, exit function
-    if (parent.hasAttribute('data-jsdx-mounted')) return;
+    if (!token || !type || parent.hasAttribute('data-jsdx-mounted')) return;
     // inject the download button
     const wrapper = document.createElement('p');
     wrapper.className = 'o-layout__item u-margin-bottom-none@sm';
