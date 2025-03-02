@@ -1,4 +1,4 @@
-import { getMediaLinks } from '../helpers';
+import { getImageLinks, getMediaLinks } from '../helpers';
 import type { ArtistMapPayload, SongPayload } from '../types/payload';
 import type { APIv4_Artist, APIv4_Song } from '../types/response';
 
@@ -23,15 +23,16 @@ export function resolveSongPayload(song: APIv4_Song, track?: number): SongPayloa
       url: song.more_info?.album_url || null,
     },
     artists: {
-      primary: song.more_info?.artistMap?.primary_artists?.map(createArtistMapPayload),
-      featured: song.more_info?.artistMap?.featured_artists?.map(createArtistMapPayload),
-      all: song.more_info?.artistMap?.artists?.map(createArtistMapPayload),
+      primary: song.more_info?.artistMap?.primary_artists?.map(resolveArtistMapPayload),
+      featured: song.more_info?.artistMap?.featured_artists?.map(resolveArtistMapPayload),
+      all: song.more_info?.artistMap?.artists?.map(resolveArtistMapPayload),
     },
+    image: getImageLinks(song.image),
     media: getMediaLinks(song.more_info?.encrypted_media_url),
   };
 }
 
-export function createArtistMapPayload(artist: APIv4_Artist): ArtistMapPayload {
+export function resolveArtistMapPayload(artist: APIv4_Artist): ArtistMapPayload {
   return {
     id: artist.id,
     name: artist.name,

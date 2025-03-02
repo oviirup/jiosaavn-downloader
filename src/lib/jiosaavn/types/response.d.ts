@@ -2,6 +2,28 @@ export type APIv4_SongResponse = {
   songs: APIv4_Song[];
 };
 
+export type APIv4_AlbumResponse = {
+  id: string;
+  title: string;
+  subtitle: string;
+  header_desc: string;
+  type: string;
+  perma_url: string;
+  image: string;
+  language: string;
+  year: string;
+  play_count: string;
+  explicit_content: string;
+  list_count: string;
+  list_type: string;
+  list: APIv4_Song[];
+  more_info: APIv4_AlbumInfo;
+};
+
+export type APIv4_PlaylistResponse = APIv4_AlbumResponse & {
+  more_info: APIv4_PlaylistInfo;
+};
+
 export type APIv4_Song = {
   id: string;
   title: string;
@@ -47,6 +69,28 @@ export type APIv4_SongInfo = {
   triller_available: boolean;
   request_jiotune_flag: boolean;
   webp: string;
+};
+
+export type APIv4_AlbumInfo = {
+  artistMap: APIv4_ArtistMap;
+  song_count: string;
+  copyright_text: string;
+  is_dolby_content: boolean;
+  label_url: string;
+};
+
+export type APIv4_PlaylistInfo = {
+  uid: string;
+  contents: string;
+  is_dolby_content: boolean;
+  subtype: any[];
+  fan_count: string;
+  playlist_type: string;
+  images: any[];
+  subheading: any;
+  video_count: string;
+  artists: APIv4_Artist[];
+  subtitle_desc: string[];
 };
 
 export type APIv4_ArtistMap = {
