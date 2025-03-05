@@ -33,7 +33,7 @@ export async function getSongData({ token }: GetSongParams) {
   if (!data.songs?.length) {
     console.error('JSDX: unable to get song data');
     // TODO more detailed error handling
-    return [];
+    return null;
   }
   return resolveSongPayload(data.songs[0]);
 }
@@ -45,7 +45,7 @@ export async function getListData({ token, type }: GetListParams) {
   if (!data.list?.length) {
     console.error('JSDX: unable to get song data');
     // TODO more detailed error handling
-    return [];
+    return null;
   }
   return resolveAlbumPayload(data);
 }

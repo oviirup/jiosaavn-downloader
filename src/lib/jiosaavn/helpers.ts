@@ -12,7 +12,7 @@ export function getMediaLinks(encryptedMediaUrl: string): MediaLinks | null {
   decipher.start({ iv: crypto.util.createBuffer(iv) });
   decipher.update(crypto.util.createBuffer(encrypted));
   decipher.finish();
-  const link = decipher.output.getBytes();
+  const link = decipher.output.getBytes().replace('http://', 'https://');
   const regexp = /_96.mp4$/;
   // construct media links payload
   return {

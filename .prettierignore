@@ -1,3 +1,14 @@
 assets/**/*
 *.min.*
 .prettierrc
+
+# package lock files
+pnpm-lock.yaml
+package-lock.json
+bun.lock
+yarn.lock
+
+# miscellaneous
+*.log
+.DS_Store
+.pnp.*
