@@ -4,8 +4,7 @@ build
 dist
 .plasmo
 .icons
-
-
+*.scss
 
 # local env files
 .env*

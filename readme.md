@@ -13,7 +13,7 @@ A simple and effective extension to download songs, albums, or playlists from �
 If you like the extension, give it a star the repo ⭐  
 [Follow me][profile] to stay updated on similar projects.
 
-You can download the extension from the following [link][download].  
+You can download the extension from the following [link][download], or visit the [changelog](./changelog.md).  
 <small>If you’re having trouble installing it, you can refer to the installation guide below.</small>
 
 <details>
@@ -43,9 +43,9 @@ For playlists or albums, the extension fetches the individual songs and download
 
 - [x] Dark Mode based on system theme.
 - [ ] Download in various qualities: HD **320kbps**, Default **160kbps**.
-- [ ] Download **Songs**.
+- [x] Download **Songs**.
 - [ ] Download Top Songs from Artists
-- [ ] Download **Albums** and **Playlists** as ZIP files.
+- [x] Download **Albums** and **Playlists** as ZIP files.
 - [ ] Download Podcasts
 - [x] **Blocks Ads** and Promotions.
 - [x] Modifies certain UI elements.

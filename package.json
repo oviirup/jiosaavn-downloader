@@ -1,6 +1,6 @@
 {
   "name": "jiosaavn-downloader",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "displayName": "JioSaavn Downloader",
   "description": "An all in one extension for JioSaavn to enable dark mode, download songs, block ads, and more",
   "homepage": "https://github.com/oviirup/jiosaavn-downloader",

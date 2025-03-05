@@ -1,5 +1,19 @@
 # Changelog
 
+## v3.0.1
+
+### Patch Changes
+
+- ✨ added download button - by [@oviirup](https://github.com/oviirup)
+  - 🎧 download song, album or playlist with one click
+  - 🚫 with abort downloads feature
+  - 📁 download album & playlist as zip
+  - 🧵 parallel download feature for fastest download
+
+### Known Issues
+
+- downloaded songs does not have any metadata [#16](https://github.com/oviirup/jiosaavn-downloader/issues/16).
+
 ## v3.0.0
 
 ### Major Change
