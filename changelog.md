@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.2
+
+### Patch Changes
+
+- 🔥 added support for firefox - by [@oviirup](https://github.com/oviirup)
+
 ## v3.0.1
 
 ### Patch Changes

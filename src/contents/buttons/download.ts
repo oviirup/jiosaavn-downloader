@@ -25,12 +25,11 @@ export async function downloadList(list: ListPayload, signal?: AbortSignal) {
   });
 
   const bufferDataList = await Promise.all(downloadQueue);
-
   bufferDataList.map(async (buffer, i) => {
     if (!buffer) return;
     const name = list.songs[i].name;
     const fileName = sanitizeFileName(name, '.m4a');
-    zip.file(fileName, buffer, { binary: true });
+    zip.file(fileName, buffer.toString(), { binary: true });
   });
 
   const blob = await zip.generateAsync({ type: 'blob' });

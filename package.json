@@ -1,17 +1,22 @@
 {
   "name": "jiosaavn-downloader",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "displayName": "JioSaavn Downloader",
   "description": "An all in one extension for JioSaavn to enable dark mode, download songs, block ads, and more",
   "homepage": "https://github.com/oviirup/jiosaavn-downloader",
   "author": "Avirup Ghosh (https://github.com/oviirup)",
   "license": "MIT",
   "scripts": {
-    "build": "plasmo build",
+    "build": "run-p 'build:*'",
+    "build:chrome": "plasmo build --target=chrome-mv3",
+    "build:firefox": "plasmo build --target=firefox-mv2",
     "clean": "npx rimraf .plasmo build",
-    "dev": "plasmo dev",
+    "dev:chrome": "plasmo dev --target=chrome-mv3",
+    "dev:firefox": "plasmo dev --target=firefox-mv2",
     "format": "prettier . -w -u --cache",
-    "pack": "plasmo build --zip"
+    "pack": "run-p 'pack:*'",
+    "pack:chrome": "plasmo build --zip --target=chrome-mv3",
+    "pack:firefox": "plasmo build --zip --target=firefox-mv2"
   },
   "dependencies": {
     "class-variance-authority": "~0.7.1",
@@ -25,13 +30,14 @@
     "selector-observer": "~2.1.6"
   },
   "devDependencies": {
-    "@types/bun": "~1.2.4",
-    "@types/chrome": "~0.0.308",
+    "@types/bun": "~1.2.5",
+    "@types/chrome": "~0.0.309",
     "@types/file-saver": "~2.0.7",
     "@types/node-forge": "~1.3.11",
-    "@types/react": "~19.0.10",
+    "@types/react": "~19.0.11",
     "@types/react-dom": "~19.0.4",
-    "autoprefixer": "~10.4.20",
+    "autoprefixer": "~10.4.21",
+    "npm-run-all": "~4.1.5",
     "postcss": "~8.5.3",
     "prettier": "~3.5.3",
     "prettier-plugin-imports": "~4.2.12",
