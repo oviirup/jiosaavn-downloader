@@ -5,4 +5,4 @@ module.exports = {
     container: { center: true, padding: '24px' },
     extend: {},
   },
-};
+}

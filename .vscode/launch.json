@@ -21,7 +21,9 @@
       "request": "launch",
       "url": "https://www.jiosaavn.com/",
       "webRoot": "${workspaceFolder}",
-      "runtimeArgs": ["--load-extension=${workspaceFolder}/build/chrome-mv3-dev"],
+      "runtimeArgs": [
+        "--load-extension=${workspaceFolder}/build/chrome-mv3-dev"
+      ],
       "cwd": "${workspaceFolder}"
     }
   ]

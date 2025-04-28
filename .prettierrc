@@ -2,15 +2,16 @@
   "$schema": "https://json.schemastore.org/prettierrc.json",
   "arrowParens": "always",
   "bracketSameLine": true,
-  "printWidth": 120,
+  "endOfLine": "lf",
   "plugins": [
-    "prettier-plugin-pkg",
     "prettier-plugin-imports",
     "prettier-plugin-jsdoc",
-    "prettier-plugin-tailwindcss"
+    "prettier-plugin-pkg"
   ],
+  "printWidth": 80,
+  "quoteProps": "consistent",
+  "semi": false,
   "singleQuote": true,
-  "semi": true,
-  "tailwindFunctions": ["clsx", "cn", "cva"],
+  "tabWidth": 2,
   "trailingComma": "all"
 }

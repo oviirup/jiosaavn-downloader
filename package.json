@@ -7,16 +7,14 @@
   "author": "Avirup Ghosh (https://github.com/oviirup)",
   "license": "MIT",
   "scripts": {
-    "build": "run-p 'build:*'",
+    "build": "run-s 'build:*'",
     "build:chrome": "plasmo build --target=chrome-mv3",
     "build:firefox": "plasmo build --target=firefox-mv2",
     "clean": "npx rimraf .plasmo build",
     "dev:chrome": "plasmo dev --target=chrome-mv3",
     "dev:firefox": "plasmo dev --target=firefox-mv2",
-    "format": "prettier . -w -u --cache",
-    "pack": "run-p 'pack:*'",
-    "pack:chrome": "plasmo build --zip --target=chrome-mv3",
-    "pack:firefox": "plasmo build --zip --target=firefox-mv2"
+    "format": "prettier . -wu --cache",
+    "pack": "run-p 'build:* -- --zip'"
   },
   "dependencies": {
     "class-variance-authority": "~0.7.1",
@@ -25,28 +23,28 @@
     "node-forge": "~1.3.1",
     "p-limit": "~6.2.0",
     "plasmo": "~0.90.3",
-    "react": "~19.0.0",
-    "react-dom": "~19.0.0",
+    "react": "~19.1.0",
+    "react-dom": "~19.1.0",
     "selector-observer": "~2.1.6"
   },
   "devDependencies": {
-    "@types/bun": "~1.2.5",
-    "@types/chrome": "~0.0.309",
+    "@types/bun": "~1.2.10",
+    "@types/chrome": "~0.0.317",
     "@types/file-saver": "~2.0.7",
     "@types/node-forge": "~1.3.11",
-    "@types/react": "~19.0.11",
-    "@types/react-dom": "~19.0.4",
+    "@types/react": "~19.1.2",
+    "@types/react-dom": "~19.1.2",
     "autoprefixer": "~10.4.21",
     "npm-run-all": "~4.1.5",
     "postcss": "~8.5.3",
     "prettier": "~3.5.3",
-    "prettier-plugin-imports": "~4.2.12",
+    "prettier-plugin-imports": "~4.3.3",
     "prettier-plugin-jsdoc": "~1.3.2",
-    "prettier-plugin-pkg": "~0.18.1",
+    "prettier-plugin-pkg": "~0.19.0",
     "prettier-plugin-tailwindcss": "~0.6.11",
     "tailwindcss": "~3.4.17",
-    "tailwindcss-pluggables": "~1.0.4",
-    "typescript": "~5.8.2"
+    "tailwindcss-pluggables": "~1.1.2",
+    "typescript": "~5.8.3"
   },
   "manifest": {
     "permissions": [
