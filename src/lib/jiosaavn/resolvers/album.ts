@@ -1,4 +1,4 @@
-import { getImageLinks } from '../helpers'
+import { decodeHtmlEntities, getImageLinks } from '../helpers'
 import type { ListPayload } from '../types/payload'
 import type { APIv4_AlbumResponse } from '../types/response'
 import { resolveArtistMapPayload, resolveSongPayload } from './song'
@@ -6,8 +6,8 @@ import { resolveArtistMapPayload, resolveSongPayload } from './song'
 export function resolveAlbumPayload(album: APIv4_AlbumResponse): ListPayload {
   return {
     id: album.id,
-    name: album.title,
-    description: album.header_desc,
+    name: decodeHtmlEntities(album.title),
+    description: decodeHtmlEntities(album.header_desc),
     type: album.type,
     year: album.year ? Number(album.year) : null,
     language: album.language,
@@ -17,15 +17,17 @@ export function resolveAlbumPayload(album: APIv4_AlbumResponse): ListPayload {
       ? Number(album.more_info.song_count)
       : album.list.length,
     artists: {
-      primary: album.more_info?.artistMap?.primary_artists?.map(
-        resolveArtistMapPayload,
-      ),
-      featured: album.more_info?.artistMap?.featured_artists?.map(
-        resolveArtistMapPayload,
-      ),
-      all: album.more_info?.artistMap?.artists?.map(resolveArtistMapPayload),
+      primary: album.more_info?.artistMap?.primary_artists?.map((artist) => {
+        return resolveArtistMapPayload(artist)
+      }),
+      featured: album.more_info?.artistMap?.featured_artists?.map((artist) => {
+        return resolveArtistMapPayload(artist)
+      }),
+      all: album.more_info?.artistMap?.artists?.map((artist) => {
+        return resolveArtistMapPayload(artist)
+      }),
     },
     image: getImageLinks(album.image),
-    songs: (album.list && album.list?.map(resolveSongPayload)) || null,
+    songs: album.list ? album.list?.map(resolveSongPayload) : null,
   }
 }

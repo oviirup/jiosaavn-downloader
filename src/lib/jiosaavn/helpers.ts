@@ -37,3 +37,10 @@ export function getImageLinks(imageUrl: string): ImageLinks {
     _500: link.replace(regexp, '500x500'),
   }
 }
+
+const parser = new DOMParser()
+export function decodeHtmlEntities(html: string) {
+  if (!html) return
+  const doc = parser.parseFromString(html, 'text/html')
+  return doc.documentElement.textContent
+}

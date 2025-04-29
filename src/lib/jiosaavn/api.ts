@@ -1,6 +1,11 @@
 import { resolveAlbumPayload } from './resolvers/album'
+import { resolvePlaylistPayload } from './resolvers/playlist'
 import { resolveSongPayload } from './resolvers/song'
-import type { APIv4_AlbumResponse, APIv4_SongResponse } from './types/response'
+import type {
+  APIv4_AlbumResponse,
+  APIv4_PlaylistResponse,
+  APIv4_SongResponse,
+} from './types/response'
 
 type RequestParam = Record<string, string>
 async function requestJioSaavnApi<T = unknown>(params: RequestParam) {
@@ -10,10 +15,10 @@ async function requestJioSaavnApi<T = unknown>(params: RequestParam) {
   const searchParams = {
     __call: 'webapi.get',
     _format: 'json',
-    _marker: '0',
+    _marker: 0,
     p: 1,
-    n: -1, // to get all items for playlists and album
-    api_version: '4',
+    n: 9999, // to get all items for playlists and album
+    api_version: 4,
     ctx: 'web6dot0',
     ...params,
   }
@@ -53,5 +58,10 @@ export async function getListData({ token, type }: GetListParams) {
     // TODO more detailed error handling
     return null
   }
-  return resolveAlbumPayload(data)
+  switch (type) {
+    case 'album':
+      return resolveAlbumPayload(data as APIv4_AlbumResponse)
+    case 'playlist':
+      return resolvePlaylistPayload(data as APIv4_PlaylistResponse)
+  }
 }
