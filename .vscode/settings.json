@@ -1,30 +1,14 @@
 {
-  "explorer.sortOrder": "type",
-  // action on save
+  // formatting config
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "never",
-    "source.fixAll.eslint": "explicit"
+    "source.biome": "explicit",
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.biome": "explicit"
   },
-  // disable validation for css and scss for tailwind
+  // tailwind config
   "css.validate": false,
-  "scss.validate": false,
-  // file nesting
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.patterns": {
-    "package.json": "bun.lock*, .nvm*, .npm*",
-    "*.js": "$(capture).*.js",
-    "*.ts": "$(capture).*.ts, $(capture).*.js",
-    "*.tsx": "$(capture).*.ts, $(capture).*.js"
-  },
-  // tailwind support for cva and classNames
-  "tailwindCSS.classAttributes": ["className", "\\w+ClassName"],
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ],
-  // prettier-ignore
-  "cSpell.words": [
-    "jiosaavn","jsdx","tailwindcss","webp","zod","plasmohq","pluggables",
-  ]
+  "tailwindCSS.classFunctions": ["tv", "cva", "cn", "clsx"]
 }

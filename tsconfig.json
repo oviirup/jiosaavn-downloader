@@ -1,14 +1,14 @@
 {
-  "extends": "plasmo/templates/tsconfig.base",
-  "compilerOptions": {
-    "checkJs": true,
-    "baseUrl": ".",
-    "moduleResolution": "bundler",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/assets/*": ["./assets/*"]
-    }
-  },
-  "include": [".plasmo/index.d.ts", "src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "build"]
+	"extends": "plasmo/templates/tsconfig.base",
+	"compilerOptions": {
+		"checkJs": true,
+		"baseUrl": ".",
+		"moduleResolution": "bundler",
+		"paths": {
+			"@/*": ["./src/*"],
+			"@/assets/*": ["./assets/*"]
+		}
+	},
+	"include": [".plasmo/index.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+	"exclude": ["node_modules", "build"]
 }

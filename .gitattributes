@@ -1,1 +1,6 @@
+# normalize text files
 * text=auto eol=lf
+
+# treat assets as binary files
+*.{webp,png,jpg,jpeg,ico} binary
+*.{ttf,woff,woff2,otf} binary
