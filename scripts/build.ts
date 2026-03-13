@@ -6,6 +6,8 @@ build({
   entry: parseEntries(manifest),
   platform: "browser",
   minify: true,
+  format: "cjs",
+  css: { transformer: "postcss" },
   onSuccess: async () => {
     await generateIcons();
     await generateManifestJson();

@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
@@ -10,16 +11,48 @@ const manifestJSON: Manifest = {
   version: "",
 };
 
+const hashCache = new Set<string>();
+export function generateHash(): string {
+  const hash = crypto.randomBytes(4).toString("hex").slice(0, 7);
+  if (hashCache.has(hash)) return generateHash();
+  return hash;
+}
+
 export function parseEntries(input: Manifest) {
   const entriesMap = new Map<string, string>();
-  // assign manifest to manifestJSON
+  const createAssetName = (prefix: string, ext: string, hashed = false) => {
+    let filename = `${prefix}`;
+    if (hashed) filename += `.${generateHash()}`;
+    return { name: filename, path: `${filename}.${ext}` };
+  };
+  // start with a shallow copy of the input manifest
   Object.assign(manifestJSON, structuredClone(input));
+  // background service worker
   if (input.background?.service_worker) {
-    entriesMap.set("sw", input.background.service_worker);
-    manifestJSON.background = { service_worker: "sw.js" };
+    const file = createAssetName("sw", "js");
+    entriesMap.set(file.name, input.background.service_worker);
+    manifestJSON.background = { service_worker: file.path };
   }
-  const entries = Object.fromEntries(entriesMap.entries());
-  return entries;
+  // content scripts
+  if (input.content_scripts?.length) {
+    manifestJSON.content_scripts = input.content_scripts.map((cs) => {
+      const csClone = structuredClone(cs);
+      if (cs.js?.length) {
+        csClone.js = cs.js.map((jsFile) => {
+          const file = createAssetName("content", "js", true);
+          entriesMap.set(file.name, jsFile);
+          return file.path;
+        });
+      }
+      if (cs.css?.length) {
+        // currently tsdown cannot process css entry
+      }
+
+      return csClone;
+    });
+  }
+  // create entry object for tsdown
+  return Object.fromEntries(entriesMap.entries());
 }
 
 export async function generateIcons() {
