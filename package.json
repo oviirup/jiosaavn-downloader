@@ -1,12 +1,14 @@
 {
   "name": "jiosaavn-downloader",
-  "version": "3.0.3",
   "displayName": "JioSaavn Downloader",
+  "version": "3.0.3",
   "description": "An all in one extension for JioSaavn to enable dark mode, download songs, block ads, and more",
-  "homepage": "https://github.com/oviirup/jiosaavn-downloader",
-  "author": "Avirup Ghosh (https://github.com/oviirup)",
   "license": "MIT",
+  "type": "module",
+  "repository": "https://github.com/oviirup/jiosaavn-downloader",
+  "author": "Avirup Ghosh (https://github.com/oviirup)",
   "scripts": {
+    "build": "bun run scripts/build",
     "format": "biome format --write",
     "lint": "biome check"
   },
@@ -17,9 +19,11 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.6",
     "@types/chrome": "^0.1.37",
+    "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "postcss": "^8.5.8",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.2.1",
     "tsdown": "^0.21.2",
     "typescript": "^5.9.3"
