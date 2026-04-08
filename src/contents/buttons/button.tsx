@@ -1,6 +1,6 @@
 import { getListData, getSongData } from '@/lib/jiosaavn/api'
 import { cva, type VariantProps } from 'class-variance-authority'
-import React from 'react'
+import * as React from 'react'
 import { downloadList, downloadSong } from './download'
 
 const variants = cva('__JSDX_download_button group relative mr-2', {
@@ -20,7 +20,7 @@ function Button({ token, target, size }: Button.Props) {
 
   // handlers ------------------------------------------------------------------
 
-  const handleOnClick = React.useCallback(async () => {
+  const onClick = React.useCallback(async () => {
     if (isPending) {
       controller.current.abort()
       setIsPending(false)
@@ -42,16 +42,11 @@ function Button({ token, target, size }: Button.Props) {
   // render --------------------------------------------------------------------
 
   return (
-    <span
-      className={variants({ size })}
-      data-target={target}
-      data-pending={isPending ? '' : undefined}
-      onClick={handleOnClick}>
+    <span className={variants({ size })} onClick={onClick}>
       <i className="o-icon--large o-icon-download" />
     </span>
   )
 }
-
 namespace Button {
   export type Props = VariantProps<typeof variants> & {
     target: 'song' | 'album' | 'playlist'
@@ -59,4 +54,6 @@ namespace Button {
   }
 }
 
-export { Button }
+export function renderButton(props: Button.Props) {
+  return <Button {...props} />
+}

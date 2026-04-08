@@ -8,7 +8,7 @@
   display: none !important;
 }
 
-.__JSDX_download_button[data-pending] i:before {
+.__JSDX_download_button.__JSDX_pending i:before {
   content: 'J' !important;
 }
 .c-content .o-list-bare li .o-snippet .o-snippet__item {

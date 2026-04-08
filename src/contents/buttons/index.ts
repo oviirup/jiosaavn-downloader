@@ -1,7 +1,7 @@
 import type { PlasmoCSConfig } from 'plasmo'
 import { createRoot } from 'react-dom/client'
 import { observe } from 'selector-observer'
-import { Button } from './button'
+import { renderButton } from './button'
 import './styles.css'
 
 export const config: PlasmoCSConfig = {
@@ -10,29 +10,30 @@ export const config: PlasmoCSConfig = {
 
 // song download button from list
 observe(
-  `.c-content ol.o-list-bare li article.o-snippet > div.o-snippet__item:nth-last-of-type(2)`,
-  {
-    add: (el: HTMLDivElement) => {
-      // get to parent node and look for the song id token
-      const parent = el.parentElement
-      const pathname = parent
-        .querySelector('figcaption h4 a')
-        ?.getAttribute('href')
-      const token = pathname?.match(/.*song\/.*\/(.*)$/)?.[1]
-      // break if already injected
-      if (parent.hasAttribute('data-jsdx-mounted')) return
-      // inject the download button
-      const wrapper = document.createElement('div')
-      wrapper.className = 'o-snippet__item u-align-center'
-      el.before(wrapper)
-      parent.setAttribute('data-jsdx-mounted', '')
-      // break if song is not available
-      if (!el.hasChildNodes()) return
-      // render the button
-      createRoot(wrapper).render(
-        <Button token={token} size="small" target="song" />,
-      )
-    },
+  `.c-content ol li article.o-snippet:has(>.o-snippet__item>.o-flag>.o-flag__body>div>a)`,
+  (el) => {
+    const link = el.querySelector('.o-flag__body>div>a')!
+    const href = link.getAttribute('href')
+    const token = href?.match(/.*song\/.*\/(.*)$/)?.[1]
+    if (!token) {
+      console.error('JSDX Unable to extract the token')
+      return
+    }
+    // break if already injected
+    if (el.hasAttribute('data-jsx-mounted')) return
+    // inject the download button
+    const fabButton = el.querySelector('.o-snippet__item:nth-last-child(2)')
+    const wrapper = document.createElement('div')
+    wrapper.className = 'o-snippet__item u-align-center'
+    fabButton.before(wrapper)
+    el.setAttribute('data-jsx-mounted', '')
+    // render the button
+    try {
+      const btn = renderButton({ token, size: 'small', target: 'song' })
+      createRoot(wrapper).render(btn)
+    } catch {
+      console.error('JSDX Error rendering download button')
+    }
   },
 )
 
@@ -50,10 +51,14 @@ observe('#root > .song figure .o-layout > .o-layout__item:first-of-type', {
     wrapper.className = 'o-layout__item u-margin-bottom-none@sm'
     el.after(wrapper)
     parent.setAttribute('data-jsdx-mounted', '')
+
     // render the button
-    createRoot(wrapper).render(
-      <Button token={token} size="large" target="song" />,
-    )
+    try {
+      const btn = renderButton({ token, size: 'large', target: 'song' })
+      createRoot(wrapper).render(btn)
+    } catch {
+      console.error('JSDX Error rendering download button')
+    }
   },
 })
 
@@ -70,11 +75,8 @@ observe(
       // get to parent node and look for the song id token
       const parent = el.parentElement
       const pathname = new URL(window.location.href).pathname
-      const [, pageSlugParam, token] = pathname.match(
-        /^\/([^/]+)\/.*\/([^/]+)$/,
-      )
-      const type =
-        pageSlugParam in typeFlagMap ? typeFlagMap[pageSlugParam] : null
+      const [, param, token] = pathname.match(/^\/([^/]+)\/.*\/([^/]+)$/)
+      const type = param in typeFlagMap ? typeFlagMap[param] : null
       // if button already injected, exit function
       if (!token || !type || parent.hasAttribute('data-jsdx-mounted')) return
       // inject the download button
@@ -82,10 +84,14 @@ observe(
       wrapper.className = 'o-layout__item u-margin-bottom-none@sm'
       el.after(wrapper)
       parent.setAttribute('data-jsdx-mounted', '')
+
       // render the button
-      createRoot(wrapper).render(
-        <Button token={token} size="large" target={type} />,
-      )
+      try {
+        const btn = renderButton({ token, size: 'large', target: type })
+        createRoot(wrapper).render(btn)
+      } catch {
+        console.error('JSDX Error rendering download button')
+      }
     },
   },
 )
